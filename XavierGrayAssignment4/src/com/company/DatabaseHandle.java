@@ -15,7 +15,7 @@ public class DatabaseHandle {
 	    connectionProps.put("password", "");
 	    try {
 			sqlConnect = DriverManager.getConnection(
-			        "jdbc:mysql://localhost:3306/", "root", "");
+			        "jdbc:mysql://localhost:3306/northwind", "root", "");
 			return true;
 		} catch (SQLException e) {
 			System.out.println("Failed to connect to database");
