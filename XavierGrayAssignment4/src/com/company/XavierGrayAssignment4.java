@@ -1,9 +1,6 @@
 package com.company;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.InputMismatchException;
@@ -103,7 +100,7 @@ public class XavierGrayAssignment4 {
         String insertString = "INSERT INTO orders(CustomerID, EmployeeID, OrderDate, RequiredDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        PreparedStatement insertStatement = handle.sqlConnect.prepareStatement(insertString);
+        PreparedStatement insertStatement = handle.sqlConnect.prepareStatement(insertString, Statement.RETURN_GENERATED_KEYS);
         String cur;
         System.out.println("Please enter the CustomerID");
         while ((cur = sc.nextLine()).equals(""))
@@ -167,18 +164,21 @@ public class XavierGrayAssignment4 {
             System.out.println("Null values are not allowed for this field.");
         insertStatement.setString(12, cur);
 
-        insertStatement.executeUpdate();
+        int affectedRows = insertStatement.executeUpdate();
+        handle.sqlConnect.commit();
 
-
+        ResultSet keyResults = insertStatement.getGeneratedKeys();
+    
+        int orderId = keyResults.getInt(1);
         String insertString2 = "insert into orders_details(OrderID, ProductID, UnitPrice, Quantity, Discount) " +
                 "values (?, ?, ?, ?, ?)";
         PreparedStatement insertStatement2 = handle.sqlConnect.prepareStatement(insertString2);
 
-        System.out.println("Please enter the OrderID");
-        while ((cur = sc.nextLine()).equals(""))
-            System.out.println("Null values are not allowed for this field.");
+//        System.out.println("Please enter the OrderID");
+//        while ((cur = sc.nextLine()).equals(""))
+//            System.out.println("Null values are not allowed for this field.");
 
-        insertStatement2.setInt(1, Integer.parseInt(cur));
+        insertStatement2.setInt(1, orderId);
 
         System.out.println("Please enter the ProductID");
         while ((cur = sc.nextLine()).equals(""))

@@ -11,11 +11,11 @@ public class DatabaseHandle {
 	public boolean connect() throws ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 	    Properties connectionProps = new Properties();
-		connectionProps.put("user", "root");
-	    connectionProps.put("password", "");
+		connectionProps.put("user", "northwind");
+	    connectionProps.put("password", " ");
 	    try {
 			sqlConnect = DriverManager.getConnection(
-			        "jdbc:mysql://localhost:3306/northwind", "root", "");
+			        "jdbc:mysql://localhost:3306/northwind", "northwind", " ");
 			return true;
 		} catch (SQLException e) {
 			System.out.println("Failed to connect to database");
