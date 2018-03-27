@@ -55,7 +55,11 @@ public class XavierGrayAssignment4 {
                         }
                         break;
                     case 3:
-                        RemoveOrder(handle);
+                        try {
+                            RemoveOrder(handle);
+                        } catch (SQLException e) {
+                            System.out.println(e.getLocalizedMessage());
+                        }
                         break;
                     case 4:
                         ShipOrder(handle);
@@ -92,7 +96,28 @@ public class XavierGrayAssignment4 {
     private static void ShipOrder(DatabaseHandle handle) {
     }
 
-    private static void RemoveOrder(DatabaseHandle handle) {
+    private static void RemoveOrder(DatabaseHandle handle) throws SQLException {
+        handle.sqlConnect.setAutoCommit(false);
+        String deleteString = "DELETE FROM order_details WHERE OrderID = ?";
+        String cur;
+
+        PreparedStatement deleteStatement = handle.sqlConnect.prepareStatement(deleteString);
+
+        System.out.println("Please enter the order ID you would like to delete");
+        while ((cur = sc.nextLine()).equals(""))
+            System.out.println("Null values are not allowed for this field.");
+        deleteStatement.setInt(1, Integer.parseInt(cur));
+
+        deleteStatement.executeUpdate();
+
+        String deleteString2 = "DELETE FROM orders WHERE OrderID = ?";
+        deleteStatement = handle.sqlConnect.prepareStatement(deleteString2);
+        deleteStatement.setInt(1, Integer.parseInt(cur));
+
+        deleteStatement.executeUpdate();
+
+        handle.sqlConnect.commit();
+        handle.sqlConnect.setAutoCommit(true);
     }
 
     private static void AddOrder(DatabaseHandle handle) throws SQLException, ParseException {
@@ -168,7 +193,7 @@ public class XavierGrayAssignment4 {
         handle.sqlConnect.commit();
 
         ResultSet keyResults = insertStatement.getGeneratedKeys();
-    
+
         int orderId = keyResults.getInt(1);
         String insertString2 = "insert into orders_details(OrderID, ProductID, UnitPrice, Quantity, Discount) " +
                 "values (?, ?, ?, ?, ?)";
