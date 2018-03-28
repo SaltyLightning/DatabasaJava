@@ -4,6 +4,7 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.SimpleTimeZone;
 
@@ -18,6 +19,11 @@ public class XavierGrayAssignment4 {
         }
         else {
             System.out.println("Connected to localhost");
+        }
+        try {
+            handle.sqlConnect.setAutoCommit(true);
+        } catch (SQLException e) {
+            System.out.println("Unable to set auto commit: " + e.getLocalizedMessage());
         }
         System.out.println("Thank you for connecting to the Northwind Database");
         System.out.println("What would you like to do today?");
@@ -62,10 +68,20 @@ public class XavierGrayAssignment4 {
                         }
                         break;
                     case 4:
-                        ShipOrder(handle);
+                        try{
+                            String orderid = ShipOrder(handle);
+                            System.out.println("Order " + orderid + " shipped!");
+                        }
+                        catch (SQLException e){
+                            System.out.println(e.getLocalizedMessage());
+                        }
                         break;
                     case 5:
-                        PrintPendingOrders(handle);
+                        try {
+                            PrintPendingOrders(handle);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
                         break;
                     case 6:
                         Restock(handle);
@@ -75,8 +91,8 @@ public class XavierGrayAssignment4 {
                 }
                 System.out.println("What would you like to do next?");
                 System.out.println("1) Add a customer\t2) Add an order");
-                System.out.println("2) Remove an order\t3) Ship an order");
-                System.out.println("4) Print pending orders\t6) Restock parts");
+                System.out.println("3) Remove an order\t4) Ship an order");
+                System.out.println("5) Print pending orders\t6) Restock parts");
                 System.out.println("7) Quit");
             }
         }
@@ -90,10 +106,52 @@ public class XavierGrayAssignment4 {
     private static void Restock(DatabaseHandle handle) {
     }
 
-    private static void PrintPendingOrders(DatabaseHandle handle) {
+    private static void PrintPendingOrders(DatabaseHandle handle) throws SQLException {
+        String selectString = "select OrderID, OrderDate, RequiredDate, CustomerID " +
+                "from orders where ShippedDate is NULL order by OrderDate ASC";
+        PreparedStatement selStatement = handle.sqlConnect.prepareStatement(selectString);
+        ResultSet selSet = selStatement.executeQuery();
+        while (selSet.next()) {
+            System.out.println(String.format("Order ID = %s, Order date = %s, Required date = %s" +
+                            " Customer ID = %s", selSet.getString(1), selSet.getString(2),
+                    selSet.getString(3), selSet.getString(4)));
+        }
     }
 
-    private static void ShipOrder(DatabaseHandle handle) {
+    private static String ShipOrder(DatabaseHandle handle) throws SQLException {
+        String cur;
+        System.out.println("Please enter the order ID you would like to ship:");
+        while ((cur = sc.nextLine()).equals(""))
+            System.out.println("Null values are not allowed for this field.");
+
+        String selectString = "select ShipName, ShipAddress, ShipCity, ShipPostalCode, ShipCountry "+
+                "from orders where OrderID = " + cur;
+
+        PreparedStatement selStatement = handle.sqlConnect.prepareStatement(selectString);
+        ResultSet selSet = selStatement.executeQuery();
+        if (!selSet.next())
+            throw new SQLException("Cannot find address information for that order id");
+        if (selSet.getString(1).equals(""))
+            throw new SQLException("Cannot find address information for that order id");
+        if (selSet.getString(2).equals(""))
+            throw new SQLException("Cannot find address information for that order id");
+        if (selSet.getString(3).equals(""))
+            throw new SQLException("Cannot find address information for that order id");
+        if (selSet.getString(4).equals(""))
+            throw new SQLException("Cannot find address information for that order id");
+        if (selSet.getString(5).equals(""))
+            throw new SQLException("Cannot find address information for that order id");
+        String updateString = "update orders set ShippedDate = ?, ShipVia = ?, Freight = ? where OrderID = ?";
+
+        PreparedStatement updateStatement = handle.sqlConnect.prepareStatement(updateString);
+
+        updateStatement.setDate(1, new Date(new java.util.Date().getTime()));
+        updateStatement.setInt(2, (new Random()).nextInt(2) + 1);
+        updateStatement.setDouble(3, (new Random()).nextDouble() * new Random().nextInt(1000) + 0.2);
+
+        updateStatement.setString(4, cur);
+        updateStatement.execute();
+        return cur;
     }
 
     private static void RemoveOrder(DatabaseHandle handle) throws SQLException {
@@ -194,7 +252,7 @@ public class XavierGrayAssignment4 {
 
         ResultSet keyResults = insertStatement.getGeneratedKeys();
 
-        int orderId = keyResults.getInt(1);
+        System.out.println(keyResults.next());
         String insertString2 = "insert into orders_details(OrderID, ProductID, UnitPrice, Quantity, Discount) " +
                 "values (?, ?, ?, ?, ?)";
         PreparedStatement insertStatement2 = handle.sqlConnect.prepareStatement(insertString2);
@@ -203,7 +261,7 @@ public class XavierGrayAssignment4 {
 //        while ((cur = sc.nextLine()).equals(""))
 //            System.out.println("Null values are not allowed for this field.");
 
-        insertStatement2.setInt(1, orderId);
+        insertStatement2.setInt(1, 1);
 
         System.out.println("Please enter the ProductID");
         while ((cur = sc.nextLine()).equals(""))
