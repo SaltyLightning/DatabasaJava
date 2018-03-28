@@ -4,8 +4,8 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.InputMismatchException;
-import java.util.Random;
 import java.util.Scanner;
+import java.util.Random;
 import java.util.SimpleTimeZone;
 
 public class XavierGrayAssignment4 {
@@ -20,16 +20,11 @@ public class XavierGrayAssignment4 {
         else {
             System.out.println("Connected to localhost");
         }
-        try {
-            handle.sqlConnect.setAutoCommit(true);
-        } catch (SQLException e) {
-            System.out.println("Unable to set auto commit: " + e.getLocalizedMessage());
-        }
         System.out.println("Thank you for connecting to the Northwind Database");
         System.out.println("What would you like to do today?");
         System.out.println("1) Add a customer\t2) Add an order");
-        System.out.println("2) Remove an order\t3) Ship an order");
-        System.out.println("4) Print pending orders\t6) Restock parts");
+        System.out.println("3) Remove an order\t4) Ship an order");
+        System.out.println("5) Print pending orders\t6) Restock parts");
         System.out.println("7) Quit");
         try {
             while ((entry = Integer.parseInt(sc.nextLine())) != 7) {
@@ -81,8 +76,7 @@ public class XavierGrayAssignment4 {
                             PrintPendingOrders(handle);
                         } catch (SQLException e) {
                             e.printStackTrace();
-                        }
-                        break;
+                        }                        break;
                     case 6:
                         Restock(handle);
                         break;
@@ -91,12 +85,15 @@ public class XavierGrayAssignment4 {
                 }
                 System.out.println("What would you like to do next?");
                 System.out.println("1) Add a customer\t2) Add an order");
-                System.out.println("3) Remove an order\t4) Ship an order");
-                System.out.println("5) Print pending orders\t6) Restock parts");
+                System.out.println("2) Remove an order\t3) Ship an order");
+                System.out.println("4) Print pending orders\t6) Restock parts");
                 System.out.println("7) Quit");
             }
         }
         catch (InputMismatchException e) {
+            System.out.println("Please only enter numbers next time!");
+        }
+        catch (NumberFormatException e){
             System.out.println("Please only enter numbers next time!");
         }
         System.out.println("Thank you! Have a nice day!");
@@ -251,8 +248,12 @@ public class XavierGrayAssignment4 {
         handle.sqlConnect.commit();
 
         ResultSet keyResults = insertStatement.getGeneratedKeys();
-
-        System.out.println(keyResults.next());
+//        ResultSetMetaData metaData = keyResults.getMetaData();
+        keyResults.last();
+//        System.out.println(String.format("Column count: %d, Column 1 name: %s, Row count: %d",
+//                metaData.getColumnCount(), metaData.getColumnName(1), keyResults.getRow()));
+//        System.out.println("Generated key = " + keyResults.getLong(1));
+        long l = keyResults.getLong(1);
         String insertString2 = "insert into orders_details(OrderID, ProductID, UnitPrice, Quantity, Discount) " +
                 "values (?, ?, ?, ?, ?)";
         PreparedStatement insertStatement2 = handle.sqlConnect.prepareStatement(insertString2);
@@ -261,12 +262,19 @@ public class XavierGrayAssignment4 {
 //        while ((cur = sc.nextLine()).equals(""))
 //            System.out.println("Null values are not allowed for this field.");
 
-        insertStatement2.setInt(1, 1);
-
-        System.out.println("Please enter the ProductID");
-        while ((cur = sc.nextLine()).equals(""))
-            System.out.println("Null values are not allowed for this field.");
-        insertStatement2.setInt(2, Integer.parseInt(cur));
+        insertStatement2.setLong(1, l);
+        int pID = -1;
+        while (pID == -1) {
+            try {
+                System.out.println("Please enter the ProductID");
+                while ((cur = sc.nextLine()).equals(""))
+                    System.out.println("Null values are not allowed for this field.");
+                pID = Integer.parseInt(cur);
+            } catch (NumberFormatException e) {
+                System.out.println("Numbers only for this field");
+            }
+        }
+        insertStatement2.setInt(2, pID);
 
         System.out.println("Please enter the UnitPrice");
         while ((cur = sc.nextLine()).equals(""))
