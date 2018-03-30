@@ -29,18 +29,17 @@
       <file leaf-file-name="XavierGrayAssignment4.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/XavierGrayAssignment4.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="269" column="0" lean-forward="true" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
+            <state relative-caret-position="364">
+              <caret line="290" column="78" lean-forward="false" selection-start-line="290" selection-start-column="78" selection-end-line="290" selection-end-column="78" />
               <folding>
-                <marker date="1522273633866" expanded="true" signature="4605:4735" ph="select Order... orders" />
-                <marker date="1522273633866" expanded="true" signature="4605:4738" ph="select Order... orders" />
-                <marker date="1522273633866" expanded="true" signature="5534:5650" ph="select ShipN... orders" />
-                <marker date="1522273633866" expanded="true" signature="6620:6697" ph="update orders... " />
-                <marker date="1522273633866" expanded="true" signature="7308:7351" ph="DELETE FROM order_details... " />
-                <marker date="1522273633866" expanded="true" signature="7813:7849" ph="DELETE FROM orders... " />
-                <marker date="1522273633866" expanded="true" signature="8293:8517" ph="INSERT INTO orders... " />
-                <marker date="1522273633866" expanded="true" signature="11742:11863" ph="insert into orders_details... " />
-                <marker date="1522273633866" expanded="true" signature="13542:13716" ph="insert into customers... " />
+                <marker date="1522336972264" expanded="true" signature="4528:4661" ph="select Order... orders" />
+                <marker date="1522336972264" expanded="true" signature="5457:5573" ph="select ShipN... orders" />
+                <marker date="1522336972264" expanded="true" signature="6543:6620" ph="update orders... " />
+                <marker date="1522336972264" expanded="true" signature="7231:7274" ph="DELETE FROM order_details... " />
+                <marker date="1522336972264" expanded="true" signature="7736:7772" ph="DELETE FROM orders... " />
+                <marker date="1522336972264" expanded="true" signature="8216:8440" ph="INSERT INTO orders... " />
+                <marker date="1522336972264" expanded="true" signature="12015:12136" ph="insert into orders_details... " />
+                <marker date="1522336972264" expanded="true" signature="14073:14247" ph="insert into customers... " />
               </folding>
             </state>
           </provider>
@@ -49,7 +48,7 @@
       <file leaf-file-name="DatabaseHandle.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/DatabaseHandle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
+            <state relative-caret-position="390">
               <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -108,9 +107,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,7 +131,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -213,42 +212,44 @@
       <workItem from="1522083321398" duration="6174000" />
       <workItem from="1522094163411" duration="3018000" />
       <workItem from="1522262966074" duration="4057000" />
-      <workItem from="1522273547725" duration="176000" />
+      <workItem from="1522273547725" duration="576000" />
+      <workItem from="1522428128597" duration="8000" />
+      <workItem from="1522429095006" duration="147000" />
+      <workItem from="1522446203671" duration="415000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15804000" />
+    <option name="totallyTimeSpent" value="16774000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2883978" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25414366" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25414366" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13645834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09791667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3524862" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3524862" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2883978" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -269,7 +270,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/XavierGrayAssignment4.java</url>
-          <line>251</line>
+          <line>248</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -284,15 +285,95 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1522273633866" expanded="true" signature="4605:4735" ph="select Order... orders" />
-            <marker date="1522273633866" expanded="true" signature="4605:4738" ph="select Order... orders" />
-            <marker date="1522273633866" expanded="true" signature="5534:5650" ph="select ShipN... orders" />
-            <marker date="1522273633866" expanded="true" signature="6620:6697" ph="update orders... " />
-            <marker date="1522273633866" expanded="true" signature="7308:7351" ph="DELETE FROM order_details... " />
-            <marker date="1522273633866" expanded="true" signature="7813:7849" ph="DELETE FROM orders... " />
-            <marker date="1522273633866" expanded="true" signature="8293:8517" ph="INSERT INTO orders... " />
-            <marker date="1522273633866" expanded="true" signature="11742:11863" ph="insert into orders_details... " />
-            <marker date="1522273633866" expanded="true" signature="13542:13716" ph="insert into customers... " />
+            <marker date="1522336972264" expanded="true" signature="4528:4661" ph="select Order... orders" />
+            <marker date="1522336972264" expanded="true" signature="5457:5573" ph="select ShipN... orders" />
+            <marker date="1522336972264" expanded="true" signature="6543:6620" ph="update orders... " />
+            <marker date="1522336972264" expanded="true" signature="7231:7274" ph="DELETE FROM order_details... " />
+            <marker date="1522336972264" expanded="true" signature="7736:7772" ph="DELETE FROM orders... " />
+            <marker date="1522336972264" expanded="true" signature="8216:8440" ph="INSERT INTO orders... " />
+            <marker date="1522336972264" expanded="true" signature="12015:12136" ph="insert into orders_details... " />
+            <marker date="1522336972264" expanded="true" signature="14073:14247" ph="insert into customers... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/DatabaseHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/XavierGrayAssignment4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1522336972264" expanded="true" signature="4528:4661" ph="select Order... orders" />
+            <marker date="1522336972264" expanded="true" signature="5457:5573" ph="select ShipN... orders" />
+            <marker date="1522336972264" expanded="true" signature="6543:6620" ph="update orders... " />
+            <marker date="1522336972264" expanded="true" signature="7231:7274" ph="DELETE FROM order_details... " />
+            <marker date="1522336972264" expanded="true" signature="7736:7772" ph="DELETE FROM orders... " />
+            <marker date="1522336972264" expanded="true" signature="8216:8440" ph="INSERT INTO orders... " />
+            <marker date="1522336972264" expanded="true" signature="12015:12136" ph="insert into orders_details... " />
+            <marker date="1522336972264" expanded="true" signature="14073:14247" ph="insert into customers... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/DatabaseHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/XavierGrayAssignment4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1522336972264" expanded="true" signature="4528:4661" ph="select Order... orders" />
+            <marker date="1522336972264" expanded="true" signature="5457:5573" ph="select ShipN... orders" />
+            <marker date="1522336972264" expanded="true" signature="6543:6620" ph="update orders... " />
+            <marker date="1522336972264" expanded="true" signature="7231:7274" ph="DELETE FROM order_details... " />
+            <marker date="1522336972264" expanded="true" signature="7736:7772" ph="DELETE FROM orders... " />
+            <marker date="1522336972264" expanded="true" signature="8216:8440" ph="INSERT INTO orders... " />
+            <marker date="1522336972264" expanded="true" signature="12015:12136" ph="insert into orders_details... " />
+            <marker date="1522336972264" expanded="true" signature="14073:14247" ph="insert into customers... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/DatabaseHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/XavierGrayAssignment4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1522336972264" expanded="true" signature="4528:4661" ph="select Order... orders" />
+            <marker date="1522336972264" expanded="true" signature="5457:5573" ph="select ShipN... orders" />
+            <marker date="1522336972264" expanded="true" signature="6543:6620" ph="update orders... " />
+            <marker date="1522336972264" expanded="true" signature="7231:7274" ph="DELETE FROM order_details... " />
+            <marker date="1522336972264" expanded="true" signature="7736:7772" ph="DELETE FROM orders... " />
+            <marker date="1522336972264" expanded="true" signature="8216:8440" ph="INSERT INTO orders... " />
+            <marker date="1522336972264" expanded="true" signature="12015:12136" ph="insert into orders_details... " />
+            <marker date="1522336972264" expanded="true" signature="14073:14247" ph="insert into customers... " />
           </folding>
         </state>
       </provider>
@@ -312,15 +393,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1522273633866" expanded="true" signature="4605:4735" ph="select Order... orders" />
-            <marker date="1522273633866" expanded="true" signature="4605:4738" ph="select Order... orders" />
-            <marker date="1522273633866" expanded="true" signature="5534:5650" ph="select ShipN... orders" />
-            <marker date="1522273633866" expanded="true" signature="6620:6697" ph="update orders... " />
-            <marker date="1522273633866" expanded="true" signature="7308:7351" ph="DELETE FROM order_details... " />
-            <marker date="1522273633866" expanded="true" signature="7813:7849" ph="DELETE FROM orders... " />
-            <marker date="1522273633866" expanded="true" signature="8293:8517" ph="INSERT INTO orders... " />
-            <marker date="1522273633866" expanded="true" signature="11742:11863" ph="insert into orders_details... " />
-            <marker date="1522273633866" expanded="true" signature="13542:13716" ph="insert into customers... " />
+            <marker date="1522336972264" expanded="true" signature="4528:4661" ph="select Order... orders" />
+            <marker date="1522336972264" expanded="true" signature="5457:5573" ph="select ShipN... orders" />
+            <marker date="1522336972264" expanded="true" signature="6543:6620" ph="update orders... " />
+            <marker date="1522336972264" expanded="true" signature="7231:7274" ph="DELETE FROM order_details... " />
+            <marker date="1522336972264" expanded="true" signature="7736:7772" ph="DELETE FROM orders... " />
+            <marker date="1522336972264" expanded="true" signature="8216:8440" ph="INSERT INTO orders... " />
+            <marker date="1522336972264" expanded="true" signature="12015:12136" ph="insert into orders_details... " />
+            <marker date="1522336972264" expanded="true" signature="14073:14247" ph="insert into customers... " />
           </folding>
         </state>
       </provider>
@@ -340,15 +420,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1522273633866" expanded="true" signature="4605:4735" ph="select Order... orders" />
-            <marker date="1522273633866" expanded="true" signature="4605:4738" ph="select Order... orders" />
-            <marker date="1522273633866" expanded="true" signature="5534:5650" ph="select ShipN... orders" />
-            <marker date="1522273633866" expanded="true" signature="6620:6697" ph="update orders... " />
-            <marker date="1522273633866" expanded="true" signature="7308:7351" ph="DELETE FROM order_details... " />
-            <marker date="1522273633866" expanded="true" signature="7813:7849" ph="DELETE FROM orders... " />
-            <marker date="1522273633866" expanded="true" signature="8293:8517" ph="INSERT INTO orders... " />
-            <marker date="1522273633866" expanded="true" signature="11742:11863" ph="insert into orders_details... " />
-            <marker date="1522273633866" expanded="true" signature="13542:13716" ph="insert into customers... " />
+            <marker date="1522336972264" expanded="true" signature="4528:4661" ph="select Order... orders" />
+            <marker date="1522336972264" expanded="true" signature="5457:5573" ph="select ShipN... orders" />
+            <marker date="1522336972264" expanded="true" signature="6543:6620" ph="update orders... " />
+            <marker date="1522336972264" expanded="true" signature="7231:7274" ph="DELETE FROM order_details... " />
+            <marker date="1522336972264" expanded="true" signature="7736:7772" ph="DELETE FROM orders... " />
+            <marker date="1522336972264" expanded="true" signature="8216:8440" ph="INSERT INTO orders... " />
+            <marker date="1522336972264" expanded="true" signature="12015:12136" ph="insert into orders_details... " />
+            <marker date="1522336972264" expanded="true" signature="14073:14247" ph="insert into customers... " />
           </folding>
         </state>
       </provider>
@@ -368,15 +447,14 @@
         <state relative-caret-position="289">
           <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
           <folding>
-            <marker date="1522273633866" expanded="true" signature="4605:4735" ph="select Order... orders" />
-            <marker date="1522273633866" expanded="true" signature="4605:4738" ph="select Order... orders" />
-            <marker date="1522273633866" expanded="true" signature="5534:5650" ph="select ShipN... orders" />
-            <marker date="1522273633866" expanded="true" signature="6620:6697" ph="update orders... " />
-            <marker date="1522273633866" expanded="true" signature="7308:7351" ph="DELETE FROM order_details... " />
-            <marker date="1522273633866" expanded="true" signature="7813:7849" ph="DELETE FROM orders... " />
-            <marker date="1522273633866" expanded="true" signature="8293:8517" ph="INSERT INTO orders... " />
-            <marker date="1522273633866" expanded="true" signature="11742:11863" ph="insert into orders_details... " />
-            <marker date="1522273633866" expanded="true" signature="13542:13716" ph="insert into customers... " />
+            <marker date="1522336972264" expanded="true" signature="4528:4661" ph="select Order... orders" />
+            <marker date="1522336972264" expanded="true" signature="5457:5573" ph="select ShipN... orders" />
+            <marker date="1522336972264" expanded="true" signature="6543:6620" ph="update orders... " />
+            <marker date="1522336972264" expanded="true" signature="7231:7274" ph="DELETE FROM order_details... " />
+            <marker date="1522336972264" expanded="true" signature="7736:7772" ph="DELETE FROM orders... " />
+            <marker date="1522336972264" expanded="true" signature="8216:8440" ph="INSERT INTO orders... " />
+            <marker date="1522336972264" expanded="true" signature="12015:12136" ph="insert into orders_details... " />
+            <marker date="1522336972264" expanded="true" signature="14073:14247" ph="insert into customers... " />
           </folding>
         </state>
       </provider>
@@ -398,7 +476,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/company/Customer.java" />
     <entry file="file://$PROJECT_DIR$/src/com/company/DatabaseHandle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
+        <state relative-caret-position="390">
           <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -408,18 +486,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/XavierGrayAssignment4.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="269" column="0" lean-forward="true" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
+        <state relative-caret-position="364">
+          <caret line="290" column="78" lean-forward="false" selection-start-line="290" selection-start-column="78" selection-end-line="290" selection-end-column="78" />
           <folding>
-            <marker date="1522273633866" expanded="true" signature="4605:4735" ph="select Order... orders" />
-            <marker date="1522273633866" expanded="true" signature="4605:4738" ph="select Order... orders" />
-            <marker date="1522273633866" expanded="true" signature="5534:5650" ph="select ShipN... orders" />
-            <marker date="1522273633866" expanded="true" signature="6620:6697" ph="update orders... " />
-            <marker date="1522273633866" expanded="true" signature="7308:7351" ph="DELETE FROM order_details... " />
-            <marker date="1522273633866" expanded="true" signature="7813:7849" ph="DELETE FROM orders... " />
-            <marker date="1522273633866" expanded="true" signature="8293:8517" ph="INSERT INTO orders... " />
-            <marker date="1522273633866" expanded="true" signature="11742:11863" ph="insert into orders_details... " />
-            <marker date="1522273633866" expanded="true" signature="13542:13716" ph="insert into customers... " />
+            <marker date="1522336972264" expanded="true" signature="4528:4661" ph="select Order... orders" />
+            <marker date="1522336972264" expanded="true" signature="5457:5573" ph="select ShipN... orders" />
+            <marker date="1522336972264" expanded="true" signature="6543:6620" ph="update orders... " />
+            <marker date="1522336972264" expanded="true" signature="7231:7274" ph="DELETE FROM order_details... " />
+            <marker date="1522336972264" expanded="true" signature="7736:7772" ph="DELETE FROM orders... " />
+            <marker date="1522336972264" expanded="true" signature="8216:8440" ph="INSERT INTO orders... " />
+            <marker date="1522336972264" expanded="true" signature="12015:12136" ph="insert into orders_details... " />
+            <marker date="1522336972264" expanded="true" signature="14073:14247" ph="insert into customers... " />
           </folding>
         </state>
       </provider>
