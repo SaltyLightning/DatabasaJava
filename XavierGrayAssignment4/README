@@ -1,0 +1,15 @@
+Xavier Gray
+Assignment 4
+04/02/2018
+Configuration: In src/company/DatabaseHandle.java
+               Set username and password in connectionProps
+               Example:
+                    connectionProps.put("user", "northwind");
+                    connectionProps.put("password", " ");
+
+               Runs on java version 1.7
+Notes:
+    -Restock parts asks the user to say which part they would like to restock by name.
+    If the part exists, the app will put all items currently on order into stock and put the amount specified in ReorderLevel on order. If ReorderLevel is 0, the app will ask the user how much to put on order.
+    -Add order: date format is mm-dd-yyyy
+    -In general, the program relies on the database to check foreign key restraints and will report failures to the user.

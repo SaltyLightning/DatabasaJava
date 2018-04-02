@@ -7,6 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.SimpleTimeZone;
+import java.util.concurrent.TimeUnit;
 
 public class XavierGrayAssignment4 {
     static Scanner sc;
@@ -20,6 +21,8 @@ public class XavierGrayAssignment4 {
         else {
             System.out.println("Connected to localhost");
         }
+        String en;
+        boolean leave = false;
         System.out.println("Thank you for connecting to the Northwind Database");
         System.out.println("What would you like to do today?");
         System.out.println("1) Add a customer\t2) Add an order");
@@ -27,7 +30,8 @@ public class XavierGrayAssignment4 {
         System.out.println("5) Print pending orders\t6) Restock parts");
         System.out.println("7) Quit");
         try {
-            while ((entry = Integer.parseInt(sc.nextLine())) != 7) {
+            while ((en = sc.nextLine()) != "") {
+                entry = Integer.parseInt(en);
 //                if (sc.hasNext()) {
 //                    sc.nextLine();
 //                    System.out.println("Fail");
@@ -48,12 +52,14 @@ public class XavierGrayAssignment4 {
                         } catch (SQLException e) {
                             if (e instanceof SQLIntegrityConstraintViolationException)
                                 System.out.println("You violated foreign key constraints");
-                            System.out.println(e.getLocalizedMessage());
+                            else
+                                System.out.println(e.getLocalizedMessage());
                         }
                         catch (ParseException e){
                             System.out.println(e.getLocalizedMessage());
                             System.out.println("(Pattern: \"mm-dd-yyyy\")");
                         }
+                        catch (Exception e){}
                         break;
                     case 3:
                         try {
@@ -75,7 +81,7 @@ public class XavierGrayAssignment4 {
                         try {
                             PrintPendingOrders(handle);
                         } catch (SQLException e) {
-                            e.printStackTrace();
+                            e.getLocalizedMessage();
                         }
                         break;
                     case 6:
@@ -83,16 +89,21 @@ public class XavierGrayAssignment4 {
                             Restock(handle);
                         } catch (SQLException e) {
                             e.printStackTrace();
-                            System.out.printf(e.getLocalizedMessage());
+                            System.out.println(e.getLocalizedMessage());
                         }
+                        break;
+                    case 7:
+                        leave = true;
                         break;
                     default:
                         System.out.println("That is not an accepted response");
                 }
+                if (leave)
+                    break;
                 System.out.println("What would you like to do next?");
                 System.out.println("1) Add a customer\t2) Add an order");
-                System.out.println("2) Remove an order\t3) Ship an order");
-                System.out.println("4) Print pending orders\t6) Restock parts");
+                System.out.println("3) Remove an order\t4) Ship an order");
+                System.out.println("5) Print pending orders\t6) Restock parts");
                 System.out.println("7) Quit");
             }
         }
@@ -224,6 +235,8 @@ public class XavierGrayAssignment4 {
 
     private static void RemoveOrder(DatabaseHandle handle) throws SQLException {
         handle.sqlConnect.setAutoCommit(false);
+        String selString = "SELECT * from orders WHERE OrderID = ?";
+
         String deleteString = "DELETE FROM order_details WHERE OrderID = ?";
         String cur;
 
@@ -232,7 +245,15 @@ public class XavierGrayAssignment4 {
         System.out.println("Please enter the order ID you would like to delete");
         while ((cur = sc.nextLine()).equals(""))
             System.out.println("Null values are not allowed for this field.");
-        deleteStatement.setInt(1, Integer.parseInt(cur));
+        int orderNum = Integer.parseInt(cur);
+        PreparedStatement selectStatement = handle.sqlConnect.prepareStatement(selString);
+        selectStatement.setInt(1, orderNum);
+        ResultSet s = selectStatement.executeQuery();
+        if (!s.next()){
+            System.out.println("No order exists for that order number");
+            return;
+        }
+        deleteStatement.setInt(1, orderNum);
 
         deleteStatement.executeUpdate();
 
@@ -244,9 +265,10 @@ public class XavierGrayAssignment4 {
 
         handle.sqlConnect.commit();
         handle.sqlConnect.setAutoCommit(true);
+        System.out.println("Successfully deleted order #" + orderNum);
     }
 
-    private static void AddOrder(DatabaseHandle handle) throws SQLException, ParseException {
+    private static void AddOrder(DatabaseHandle handle) throws SQLException, ParseException, InterruptedException {
         handle.sqlConnect.setAutoCommit(false);
         String insertString = "INSERT INTO orders(CustomerID, EmployeeID, OrderDate, RequiredDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -281,10 +303,7 @@ public class XavierGrayAssignment4 {
             System.out.println("Null values are not allowed for this field.");
         insertStatement.setString(5, cur);
 
-        System.out.println("Please enter the Freight");
-        while ((cur = sc.nextLine()).equals(""))
-            System.out.println("Null values are not allowed for this field.");
-        insertStatement.setString(6, cur);
+        insertStatement.setDouble(6, new Random().nextDouble() * new Random().nextInt(1000) + 0.2);
 
         System.out.println("Please enter the ShipName");
         while ((cur = sc.nextLine()).equals(""))
@@ -325,7 +344,7 @@ public class XavierGrayAssignment4 {
 //                metaData.getColumnCount(), metaData.getColumnName(1), keyResults.getRow()));
 //        System.out.println("Generated key = " + keyResults.getLong(1));
         long l = keyResults.getLong(1);
-        String insertString2 = "insert into orders_details(OrderID, ProductID, UnitPrice, Quantity, Discount) " +
+        String insertString2 = "insert into order_details(OrderID, ProductID, UnitPrice, Quantity, Discount) " +
                 "values (?, ?, ?, ?, ?)";
         PreparedStatement insertStatement2 = handle.sqlConnect.prepareStatement(insertString2);
 
@@ -350,8 +369,9 @@ public class XavierGrayAssignment4 {
         String selectString = "select UnitPrice from products where ProductID = " + pID;
         PreparedStatement selStatement = handle.sqlConnect.prepareStatement(selectString);
         ResultSet set = selStatement.executeQuery();
-
-        insertStatement.setDouble(3, set.getDouble(1));
+        set.next();
+        double unit = (double) set.getObject(1);
+        insertStatement2.setDouble(3, unit);
         System.out.println("Please enter the Quantity");
         while ((cur = sc.nextLine()).equals(""))
             System.out.println("Null values are not allowed for this field.");
