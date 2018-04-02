@@ -83,6 +83,7 @@ public class XavierGrayAssignment4 {
                             Restock(handle);
                         } catch (SQLException e) {
                             e.printStackTrace();
+                            System.out.printf(e.getLocalizedMessage());
                         }
                         break;
                     default:
@@ -105,8 +106,72 @@ public class XavierGrayAssignment4 {
         sc.close();
     }
 
-    private static void Restock(com.company.DatabaseHandle handle) throws SQLException {
+    private static void Restock(DatabaseHandle handle) throws SQLException {
+        String cur;
+        System.out.print("Please enter the product name you would like to order: ");
+        while ((cur = sc.nextLine()).equals(""))
+            System.out.println("Null values are not allowed for this field.");
+        String selectString = "select ProductID, Discontinued, ReorderLevel from products where ProductName = ?";
+        PreparedStatement selStatement = handle.sqlConnect.prepareStatement(selectString);
+        selStatement.setString(1, cur);
+        String productN = cur;
+        ResultSet selSet = selStatement.executeQuery();
+        if (!selSet.next()){
+            String insertString = "INSERT INTO products(ProductName, SupplierID, CategoryID, QuantityPerUnit, " +
+                    "UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) " +
+                    "VALUES (?, ?, ?, ?, ?, 0, ?, ?, \'n\')";
+            PreparedStatement insertStatement = handle.sqlConnect.prepareStatement(insertString);
+            insertStatement.setString(1, cur);
+            System.out.println("Looks like that's a new product. We'll have to ask for some more information.");
 
+            System.out.print("What is the SupplierID for that product? ");
+            while ((cur = sc.nextLine()).equals(""))
+                System.out.println("Null values are not allowed for this field.");
+            insertStatement.setInt(2, Integer.parseInt(cur));
+
+            System.out.print("What is the CategoryID for that product? ");
+            while ((cur = sc.nextLine()).equals(""))
+                System.out.println("Null values are not allowed for this field.");
+            insertStatement.setInt(3, Integer.parseInt(cur));
+
+            System.out.print("What is the Quantity Per Unit for that product? ");
+            while ((cur = sc.nextLine()).equals(""))
+                System.out.println("Null values are not allowed for this field.");
+            insertStatement.setString(4, cur);
+
+            System.out.print("What is the Unit Price for that product? ");
+            while ((cur = sc.nextLine()).equals(""))
+                System.out.println("Null values are not allowed for this field.");
+            insertStatement.setDouble(5, Double.parseDouble(cur));
+
+            System.out.print("What is the Reorder Level for that product? ");
+            while ((cur = sc.nextLine()).equals(""))
+                System.out.println("Null values are not allowed for this field.");
+            insertStatement.setInt(6, Integer.parseInt(cur));
+            insertStatement.setInt(7, Integer.parseInt(cur));
+
+            insertStatement.execute();
+        }
+        else{
+            if (selSet.getString(2).equals("y")){
+                System.out.println("That product is discontinued. You cannot restock it.");
+                throw new SQLException();
+            }
+            String updateString = "UPDATE products SET UnitsInStock = UnitsInStock + UnitsOnOrder, " +
+                    "UnitsOnOrder = ? WHERE ProductID = ?";
+            PreparedStatement updateStatement = handle.sqlConnect.prepareStatement(updateString);
+            updateStatement.setInt(2, selSet.getInt(1));
+            int reorderAmount = selSet.getInt(3);
+            if (reorderAmount == 0){
+                System.out.print("How many of \"" + productN + "\" would you like to order? ");
+                while ((cur = sc.nextLine()).equals(""))
+                    System.out.println("Null values are not allowed for this field.");
+                reorderAmount = Integer.parseInt(cur);
+            }
+            updateStatement.setInt(1, reorderAmount);
+            updateStatement.execute();
+        }
+        System.out.println("Successfully restocked " + productN);
     }
 
     private static void PrintPendingOrders(com.company.DatabaseHandle handle) throws SQLException {
@@ -282,11 +347,11 @@ public class XavierGrayAssignment4 {
         }
         insertStatement2.setInt(2, pID);
 
-        System.out.println("Please enter the UnitPrice");
-        while ((cur = sc.nextLine()).equals(""))
-            System.out.println("Null values are not allowed for this field.");
-        insertStatement2.setDouble(3, Double.parseDouble(cur));
+        String selectString = "select UnitPrice from products where ProductID = " + pID;
+        PreparedStatement selStatement = handle.sqlConnect.prepareStatement(selectString);
+        ResultSet set = selStatement.executeQuery();
 
+        insertStatement.setDouble(3, set.getDouble(1));
         System.out.println("Please enter the Quantity");
         while ((cur = sc.nextLine()).equals(""))
             System.out.println("Null values are not allowed for this field.");
