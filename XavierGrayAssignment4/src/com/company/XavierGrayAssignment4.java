@@ -76,9 +76,14 @@ public class XavierGrayAssignment4 {
                             PrintPendingOrders(handle);
                         } catch (SQLException e) {
                             e.printStackTrace();
-                        }                        break;
+                        }
+                        break;
                     case 6:
-                        Restock(handle);
+                        try {
+                            Restock(handle);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
                         break;
                     default:
                         System.out.println("That is not an accepted response");
@@ -100,10 +105,11 @@ public class XavierGrayAssignment4 {
         sc.close();
     }
 
-    private static void Restock(DatabaseHandle handle) {
+    private static void Restock(com.company.DatabaseHandle handle) throws SQLException {
+
     }
 
-    private static void PrintPendingOrders(DatabaseHandle handle) throws SQLException {
+    private static void PrintPendingOrders(com.company.DatabaseHandle handle) throws SQLException {
         String selectString = "select OrderID, OrderDate, RequiredDate, CustomerID " +
                 "from orders where ShippedDate is NULL order by OrderDate ASC";
         PreparedStatement selStatement = handle.sqlConnect.prepareStatement(selectString);
@@ -115,7 +121,7 @@ public class XavierGrayAssignment4 {
         }
     }
 
-    private static String ShipOrder(DatabaseHandle handle) throws SQLException {
+    private static String ShipOrder(com.company.DatabaseHandle handle) throws SQLException {
         String cur;
         System.out.println("Please enter the order ID you would like to ship:");
         while ((cur = sc.nextLine()).equals(""))
@@ -284,7 +290,7 @@ public class XavierGrayAssignment4 {
         System.out.println("Please enter the Quantity");
         while ((cur = sc.nextLine()).equals(""))
             System.out.println("Null values are not allowed for this field.");
-        insertStatement.setShort(4, Short.parseShort(cur));
+        insertStatement2.setShort(4, Short.parseShort(cur));
 
         System.out.println("Please enter the Discount");
         while ((cur = sc.nextLine()).equals(""))
